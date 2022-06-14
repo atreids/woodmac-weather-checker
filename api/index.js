@@ -8,19 +8,19 @@ app.use(cors());
 let weatherData = [
   {
     temperature: 24,
-    location: "glasgow",
+    location: "Glasgow",
   },
   {
-    temperature: 12,
-    location: "edinburgh",
+    temperature: 16,
+    location: "Edinburgh",
   },
   {
     temperature: 14,
-    location: "south glasgow",
+    location: "South glasgow",
   },
   {
-    temperature: 13,
-    location: "stirling",
+    temperature: 14,
+    location: "Stirling",
   },
 ];
 
@@ -30,7 +30,11 @@ app.get("/", (request, response) => {
 
 app.get("/api/weather/:location", (request, response) => {
   const location = request.params.location;
-  const localWeatherData = weatherData.find((n) => n.location === location);
+
+  const localWeatherData = weatherData.find(
+    (place) => place.location === location
+  );
+
   response.json(localWeatherData);
 });
 
@@ -39,5 +43,9 @@ app.get("/api/weather", (request, response) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Weather API running on port ${PORT}`);
+  console.log(`
+  -----------------------------------
+   Weather API running on port ${PORT}
+  -----------------------------------
+  `);
 });
