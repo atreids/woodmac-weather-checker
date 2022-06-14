@@ -10,6 +10,8 @@ Follow these instructions to test out the app
 
 `cd woodmac-weather-checker/client`
 
+`npm install`
+
 `npm start`
 
 This will start the client, the client relies on an express backend server (it contains hardcoded data, so you don't have to worry about loading a database).
@@ -19,6 +21,8 @@ You must open a new terminal in order to start the backend, as the client will b
 **IN NEW TERMINAL**
 
 `cd woodmac-weather-checker/api`
+
+`npm install`
 
 `npm run dev`
 
