@@ -1,24 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import getLocalWeather from "./service/weather";
+
+const WeatherDisplay = () => {
+  const [temp, setTemp] = useState<number>(0);
+  console.log(temp);
+
+  useEffect(() => {
+    console.log("before call");
+
+    getLocalWeather("glasgow").then((weatherObject) => {
+      console.log("after call");
+      setTemp(weatherObject.temperature);
+      console.log(temp);
+    });
+  }, []);
+
+  const tappsaff = (temp: number) => {
+    return temp > 15 ? "tapps aff" : "tapps awn";
+  };
+
+  return (
+    <>
+      <h1>{tappsaff(temp)}</h1>
+      <p>Temperature in Glasgow is: {temp} C</p>
+    </>
+  );
+};
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <WeatherDisplay />
     </div>
   );
 }
