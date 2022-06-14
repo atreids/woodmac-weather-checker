@@ -7,7 +7,7 @@ app.use(cors());
 
 let weatherData = [
   {
-    temperature: 16,
+    temperature: 24,
     location: "glasgow",
   },
   {

@@ -3,15 +3,10 @@ import getLocalWeather from "./service/weather";
 
 const WeatherDisplay = () => {
   const [temp, setTemp] = useState<number>(0);
-  console.log(temp);
 
   useEffect(() => {
-    console.log("before call");
-
     getLocalWeather("glasgow").then((weatherObject) => {
-      console.log("after call");
       setTemp(weatherObject.temperature);
-      console.log(temp);
     });
   }, []);
 
