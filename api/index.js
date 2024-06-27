@@ -24,7 +24,7 @@ let weatherData = [
   },
 ];
 
-app.get("/", (request, response) => {
+app.get("/", (_request, response) => {
   response.send(`Weather API server currently running on port ${PORT}`);
 });
 
@@ -38,7 +38,7 @@ app.get("/api/weather/:location", (request, response) => {
   response.json(localWeatherData);
 });
 
-app.get("/api/weather", (request, response) => {
+app.get("/api/weather", (_request, response) => {
   response.json(weatherData);
 });
 
