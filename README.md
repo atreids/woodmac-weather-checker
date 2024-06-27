@@ -12,7 +12,7 @@ Follow these instructions to test out the app
 
 `npm install`
 
-`npm start`
+`npm run dev`
 
 This will start the client, the client relies on an express backend server (it contains hardcoded data, so you don't have to worry about loading a database).
 
